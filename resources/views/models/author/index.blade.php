@@ -13,7 +13,7 @@
 
                     <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
                         <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                            <caption>Authors table</caption>
+                            <caption class="hidden">Authors table</caption>
                             <thead
                                    class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                                 <tr>
@@ -29,8 +29,14 @@
                                     <th scope="col" class="px-6 py-3">
                                         Updated at
                                     </th>
-                                    <th scope="col" class="px-6 py-3">
-                                        Action
+                                    <th scope="col" class="px-6 py-3 flex justify-center items-center">
+                                        <button type="button" class="focus:outline-none text-white 
+                                        bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300
+                                         font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-indigo-600 
+                                         dark:hover:bg-indigo-600 dark:focus:ring-purple-900">
+                                         Add
+                                        </button>
+                                        
                                     </th>
                                 </tr>
                             </thead>
@@ -51,9 +57,15 @@
                                         <td class="px-6 py-4">
                                             {{$author->updated_at}}
                                         </td>
-                                        <td class="px-6 py-4">
+                                        <td class="px-6 py-4 flex gap-4 justify-center">
                                             <a href="#"
-                                               class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                                               class="font-medium text-indigo-600 dark:text-indigo-600 hover:underline">
+                                               Edit
+                                            </a>
+                                            <a href="#"
+                                               class="font-medium text-indigo-600 dark:text-indigo-600 hover:underline">
+                                               Delete
+                                            </a>
                                         </td>
                                     </tr>
                                 @endforeach
