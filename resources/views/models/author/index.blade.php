@@ -15,7 +15,8 @@
                         <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
                             <caption class="hidden">Authors table</caption>
                             <thead
-                                   class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                                   class="text-xs text-gray-700 uppercase bg-gray-50
+                                   dark:bg-gray-700 dark:text-gray-400">
                                 <tr>
                                     <th scope="col" class="px-6 py-3">
                                         ID
@@ -30,12 +31,13 @@
                                         Updated at
                                     </th>
                                     <th scope="col" class="px-6 py-3 flex justify-center items-center">
-                                        <button type="button" class="focus:outline-none text-white 
+                                        <a href="{{ route('authors.create')}}" type="button"
+                                         class="focus:outline-none text-white
                                         bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300
-                                         font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-indigo-600 
+                                         font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-indigo-600
                                          dark:hover:bg-indigo-600 dark:focus:ring-purple-900">
                                          Add
-                                        </button>
+                                    </a>
                                         
                                     </th>
                                 </tr>
@@ -43,9 +45,11 @@
                             <tbody>
                                 @foreach ($authors as $author)
                                     <tr
-                                        class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
+                                        class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50
+                                        even:dark:bg-gray-800 border-b dark:border-gray-700">
                                         <th scope="row"
-                                            class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                            class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap
+                                             dark:text-white">
                                             {{$author->id}}
                                         </th>
                                         <td class="px-6 py-4">

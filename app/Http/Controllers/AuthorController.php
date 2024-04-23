@@ -23,7 +23,7 @@ class AuthorController extends Controller
      */
     public function create()
     {
-        //
+        return view('models.author.create');
     }
 
     /**
@@ -31,7 +31,17 @@ class AuthorController extends Controller
      */
     public function store(StoreAuthorRequest $request)
     {
-        //
+        // only use if have specific author request     $request
+        /*  if no request then use
+
+            Author::create([
+                'name' => $request->input('name),
+            ])
+            
+        */
+        Author::create($request->validated());
+
+        return redirect()->route('authors.index')->with('success', 'Author created.');
     }
 
     /**
