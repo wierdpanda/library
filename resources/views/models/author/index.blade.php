@@ -9,9 +9,6 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
 
-
-
-
                 <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
                     <caption class="hidden">Authors table</caption>
                     <thead
@@ -19,16 +16,20 @@
                                    dark:bg-gray-700 dark:text-gray-400">
                         <tr>
                             <th scope="col" class="px-6 py-2">
-                                ID
+                                {{-- the use of
+                                    {{ __('text') }}
+                                     allows everying within the (' ') to be translated via
+                                     laravels internal language programs(spanish/xhosa etc. --}}
+                                {{ __('ID') }}
                             </th>
                             <th scope="col" class="px-6 py-2">
-                                Author name
+                                {{ __('Author name') }}
                             </th>
                             <th scope="col" class="px-6 py-2">
-                                Created at
+                                {{ __('Created at') }}
                             </th>
                             <th scope="col" class="px-6 py-2">
-                                Updated at
+                                {{ __('Update at') }}
                             </th>
                             <th scope="col" class="px-6 py-2 flex justify-center items-center">
                                 <a href="{{ route('authors.create') }}" type="button"
@@ -36,7 +37,7 @@
                                         bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300
                                          font-medium rounded-lg text-sm px-5 py-2.5  dark:bg-indigo-600
                                          dark:hover:bg-indigo-600 dark:focus:ring-purple-900">
-                                    Add
+                                    {{ __('Add') }}
                                 </a>
 
                             </th>
@@ -62,14 +63,19 @@
                                     {{ $author->updated_at }}
                                 </td>
                                 <td class="px-6 py-2 flex gap-4 justify-center">
-                                    <a href="#"
+                                    <a href="{{ route('authors.edit', $author->id) }}"
                                        class="font-medium text-indigo-600 dark:text-indigo-600 hover:underline">
-                                        Edit
+                                        {{ __('Edit') }}
                                     </a>
-                                    <a href="#"
-                                       class="font-medium text-indigo-600 dark:text-indigo-600 hover:underline">
-                                        Delete
-                                    </a>
+                                    <form method="POST" action="{{ route('authors.destroy', $author->id) }}">
+                                        @csrf
+                                        @method('delete')
+                                        <button type="submit"
+                                            class="font-medium text-indigo-600 dark:text-indigo-600 hover:underline">
+                                            Delete
+                                        </button>
+                                    </form>
+
                                 </td>
                             </tr>
                         @endforeach

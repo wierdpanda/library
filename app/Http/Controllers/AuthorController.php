@@ -57,7 +57,9 @@ class AuthorController extends Controller
      */
     public function edit(Author $author)
     {
-        //
+        return view('models.author.edit',[
+            'author' => $author,
+        ]);
     }
 
     /**
@@ -65,7 +67,8 @@ class AuthorController extends Controller
      */
     public function update(UpdateAuthorRequest $request, Author $author)
     {
-        //
+        $author->update($request->validated());
+        return redirect()->route('authors.index')->with('success', 'Author updated.');
     }
 
     /**
@@ -73,6 +76,8 @@ class AuthorController extends Controller
      */
     public function destroy(Author $author)
     {
-        //
+        $author->delete();
+
+        return redirect()->route('authors.index')->with('success', 'Author deleted.');
     }
 }
