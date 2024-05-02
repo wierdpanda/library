@@ -11,69 +11,9 @@
 </head>
 
 <body class="bg-gray-100 dark:bg-gray-900">
-    {{-- full body div --}}
-    <div class="max-w-screen-x1 mx-auto h-screen w-full">
-        {{-- banner div --}}
-        <div
-             class="
-                    relative
-                    h-28
-                    w-full
-                    flex flex-wrap
-                    items-center
-                    justify-between
-                    
-                    bg-gray-100 dark:bg-gray-900
-                    px-6
-                    py-6
-                    md:justify-center
-                    md:pl-0
-                    
-                    ">
-            {{-- logo/homepage --}}
-            <div
-                 class="
-                 mx-auto
-                 
-                 flex
-                 justify-center
-                 items-center
-                 border-2
-                 border-slate-600
-                 rounded-full
-                 h-[120px]
-                 w-[120px]
-                
-                 ">
-                <a href="home">
-                    <x-book-logo class="w-[100px] h-[90px] fill-current text-gray-500" />
-                </a>
-            </div>
-            {{-- login/reg --}}
-            <div class="right-96 h-12 w-48 sm:absolute">
-                <x-loginReg />
-            </div>
-        </div>
-        <p class="text-cyan-500 flex justify-center p-10">test</p>
-        <div class=" mx-auto w-96">
-        <p class="text-cyan-500 flex justify-center p-10 flex flex-wrap">
-            Things i need to learn
-            <br>
-    
-            1.set up database with crud facilities<br>
-            2.make a darkmode toggle<br>
-            3.know how to insert tables<br>
-            4.how to setup a comment box<br>
-            5.how to move around/create a basic front end feel of a site<br>
-            6.add login register without installing breeze ( look through breeze routes and controllers)<br>
-            7.php unit tests ( last)<br>
-    
-        </p>
-    </div>
+    <p>test</p>
 
-    </div>
 
-   
 
 
 

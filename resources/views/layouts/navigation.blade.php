@@ -11,7 +11,7 @@
                     </a>
 
                 </div>
-
+                
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
@@ -26,6 +26,13 @@
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link :href="route('genres.index')" :active="request()->routeIs('genres.index')">
                         {{ __('Genres') }}
+                    </x-nav-link>
+                </div>
+                
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    
+                    <x-nav-link :href="route('books.index')" :active="request()->routeIs('books.index')" >
+                        {{ __('Books') }}
                     </x-nav-link>
                 </div>
             </div>

@@ -44,6 +44,54 @@
                             <x-book-logo class="w-[100px] h-[100px] fill-current text-gray-500" />
                         </a>
                     </div>
+                    {{-- full body div --}}
+    <div class="max-w-screen-x1 mx-auto h-screen w-full">
+        {{-- banner div --}}
+        <div
+             class="
+                    relative
+                    h-28
+                    w-full
+                    flex flex-wrap
+                    items-center
+                    justify-between
+                    
+                    bg-gray-100 dark:bg-gray-900
+                    px-6
+                    py-6
+                    md:justify-center
+                    md:pl-0
+                    
+                    ">
+            {{-- logo/homepage --}}
+            <div
+                 class="
+                 mx-auto
+                 
+                 flex
+                 justify-center
+                 items-center
+                 border-2
+                 border-slate-600
+                 rounded-full
+                 h-[120px]
+                 w-[120px]
+                
+                 ">
+                <a href="home">
+                    <x-book-logo class="w-[100px] h-[90px] fill-current text-gray-500" />
+                </a>
+            </div>
+            {{-- login/reg --}}
+            <div class="right-96 h-12 w-48 sm:absolute">
+                <x-loginReg />
+            </div>
+        </div>
+        <p class="text-cyan-500 flex justify-center p-10">test</p>
+        
+
+    </div>
+
     
 </body>
 </html>
