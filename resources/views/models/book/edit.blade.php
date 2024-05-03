@@ -1,10 +1,11 @@
+
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
             {{ __('Edit Book') }}
         </h2>
     </x-slot>
-
+    
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="w-full flex justify-end mb-3">
@@ -18,42 +19,60 @@
                     {{ __('<-back') }}
                 </a>
             </div>
-            <div class="bg-white dark:bg-gray-800 overflow-hidden  sm:rounded-lg">
-
+            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
-
 
                     <header>
                         <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100">
                             {{ __('Book Information') }}
                         </h2>
-
-
+                
+                        
                     </header>
 
-
-
+                    
                     <div class="relative overflow-x-auto  sm:rounded-lg">
                         <form method="post" action="{{ route('books.update', $book->id) }}" class="mt-6 space-y-6">
                             @csrf
                             @method('put')
-
-
+                            
+                            @php
+                                info($errors);
+                            @endphp
+                    
                             <div>
-                                <x-input-label for="name" :value="__('Name')" />
-                                <x-text-input id="name" name="name" type="text" class="mt-1 block w-full"
-                                              required autofocus value="{{ $book->name }}" />
-                                <x-input-error class="mt-2" :messages="$errors->get('name')" />
+                                <x-input-label for="title" :value="__('Title')" />
+                                <x-text-input id="title" name="title" type="text" class="mt-1 block w-full"
+                                 required autofocus value="{{ $book->title ?? '' }}" />
+                                <x-input-error class="mt-2" :messages="$errors->get('title')" />
                             </div>
 
+                            <div>
+                                <x-input-label for="pages" :value="__('Pages')" />
+                                <x-text-input type="number" id="pages" name="pages" type="text" class="mt-1 block w-full"
+                                 required autofocus value="{{ $book->pages ?? '' }}" />
+                                <x-input-error class="mt-2" :messages="$errors->get('pages')" />
+                            </div>
                             
-
-
-
+                            <div>
+                                <x-input-label for="genres" :value="__('Genres')" />
+                                <x-select id="genres" name="genre_id" :options="$genres"
+                                :key="'id'" :value="'name'" :selected="$book->genre_id" />
+                                
+                            </div>
+                            <div>
+                                <x-input-label for="authors" :value="__('Authors')" />
+                                <x-select id="authors" name="author_id" :options="$authors"
+                                :key="'id'" :value="'name'" :selected="$book->author_id" />
+                                
+                            </div>
+                    
+                            
+                    
                             <div class="flex items-center gap-4">
-                                <x-primary-button>{{ __('Update') }}</x-primary-button>
-
-
+                                <x-primary-button>{{ __('update') }}</x-primary-button>
+                    
+                               
                             </div>
                         </form>
                     </div>

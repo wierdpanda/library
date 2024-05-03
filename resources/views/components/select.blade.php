@@ -17,7 +17,9 @@
    
   @endphp --}}
   
-    <option value="{{$option->$key}}">{{ $option->$value }}</option>
+    <option value="{{$option->$key}}" @if ($option->$key == $selected) selected @endif>
+      {{ $option->$value }}
+    </option>
       
   @endforeach
 
