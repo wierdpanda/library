@@ -3,13 +3,13 @@
 Dependencies:
 
 1. laravel 11
-2. breeze+tailwindcss 3.1.0
-3. sass 1.74.1
-4. php 8.2.17
-5. node 18.8
+2. breeze+tailwindcss 3^
+3. sass 1^
+4. php 8^
+5. node 18^
 6. laravel vite-plugin v1
-7. vite 5.2.8
-7. flowbite 2.3.0
+7. vite 5^
+7. flowbite 2^
 
 copy .env.example over to.env
 setup database details in .env

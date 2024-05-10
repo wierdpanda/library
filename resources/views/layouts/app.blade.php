@@ -44,7 +44,7 @@
             </x-alert>
         @endif
             </div>
-
+            <x-search-bar />
 
             {{ $slot }}
         </main>
