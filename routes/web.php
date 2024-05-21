@@ -4,7 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 Route::get('/new', function () {
     return view('new');
@@ -21,11 +21,18 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+    //put these within middleware or will come back with null instead of login site
+    require __DIR__ . '/models/author.php';
+    require __DIR__ . '/models/genre.php';
+    require __DIR__ . '/models/book.php';
 });
 
 // Route::resource('books', 'App\Http\Controllers\BookController');
 
-require __DIR__.'/auth.php';
-require __DIR__. '/models/author.php';
-require __DIR__. '/models/genre.php';
-require __DIR__. '/models/book.php';
+require __DIR__ . '/auth.php';
+
+
+// require __DIR__ . '/models/author.php';
+// require __DIR__ . '/models/genre.php';
+// require __DIR__ . '/models/book.php';
