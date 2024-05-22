@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('home');
-});
+})->middleware(['auth', 'verified'])->name('home');
 Route::get('/new', function () {
     return view('new');
 });
@@ -26,6 +26,8 @@ Route::middleware('auth')->group(function () {
     require __DIR__ . '/models/author.php';
     require __DIR__ . '/models/genre.php';
     require __DIR__ . '/models/book.php';
+    
+
 });
 
 // Route::resource('books', 'App\Http\Controllers\BookController');

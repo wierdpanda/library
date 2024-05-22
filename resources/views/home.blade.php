@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>new</title>
+    <title>Nathanial's Library</title>
     @vite(['resources/scss/app.scss', 'resources/js/app.js'])
 
 </head>
@@ -96,19 +96,20 @@
         
 
     {{-- images + slot +  --}}
-    <div class="flex bg-gray-600 justify-evenly ">
+    <div class="flex bg-gray-600 justify-between max-w-screen-xl
+    relative mx-auto">
         {{-- images left  +hides smaller screens--}}
-        <div class="w-full hidden sm:block">
+        <div class="w-1/5 ">
             
             {{-- image left top --}}
-            <img class="w-full max-h-32 max-w-32  mx-auto"
+            <img class="w-full max-h-32 max-w-32  mx-auto py-3"
                  src="{{ asset('img/soloLearn.png') }}"
 
                  alt="No image found">
 
             {{-- Soloearn links --}}
             <a href="https://www.sololearn.com/certificates/CC-HOFBUUPZ" >
-            <img src="{{ asset('img/html.jpeg') }}" alt="No image found" class="mx-auto flex flex-gap justify-center py-4 max-h-20" >
+            <img src="{{ asset('img/html.jpeg') }}" alt="No image found" class="mx-auto flex flex-gap justify-center py-4 max-h-20 " >
             
             </a>
             
@@ -117,7 +118,7 @@
         </div>
 
         {{-- Content --}}
-        <div class=" bg-indigo-600 w-full text-gray-200 ">
+        <div class=" bg-indigo-600 w-3/5 text-gray-200 px-3 py-1.5 ">
             
             <h1>Nathanial's Library</h1>
         <p>
@@ -127,13 +128,15 @@
 
         <p>Currently I am also learning via sololearn and on the left are my certificates I have achieved so far. </p>
 
+        <p>feel free to browse my work via register/login/dashboard</p>
+
 
         </div>
 
         {{-- images right --}}
-        <div class=" w-full bg-gray-600 hidden sm:block" >
+        <div class=" w-1/5 bg-gray-600 " >
             {{-- image right top --}}
-            <img class="w-full max-h-32 max-w-32  mx-auto"
+            <img class="w-full max-h-32 max-w-32  mx-auto py-3"
                  src="{{ asset('img/udemy.png') }}"
 
                  alt="Place holder">
@@ -144,8 +147,12 @@
         </div>
     </div>
 
+    
+    
+
+    <!-- This div will be fixed at the bottom -->
     <div class="bottom-0 fixed w-full  max-h-28 ">
-        <!-- This div will be fixed at the bottom -->
+        
         <div class="w-full bg-gray-500 min-h-[150px] h-full">
 
             <h3 class="text-white pt-3 px-3">
@@ -159,6 +166,7 @@
                 Email: natwork102@gmail.com
             </p>
     </div>
+    
 
     
 
