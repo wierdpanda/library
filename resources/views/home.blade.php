@@ -135,71 +135,75 @@
     </div>
     {{-- certificates --}}
     {{-- make  popup  in middle of sceen (modal) for when course links are not ready yet --}}
-    <div class="w-full flex justify-evenly  mt-10 background-div mx-auto max-w-screen-lg">
-        <div>
-            {{-- sololearn Certificates --}}
-            <div class="text-indigo-600  flex gap-3 items-center">
-                <x-icon.sololearn class="w-10 h-10 text-indigo-600 " />
-                <p>SoloLearn Certificates</p>
-            </div>
+    <div class="max-w-screen-xl flex justify-center w-full mx-auto">
+
+        <div class="w-3/5 flex justify-between  mt-10 background-div mx-auto ">
+            <div>
+                {{-- sololearn Certificates --}}
+                <div class="text-indigo-600  flex gap-3 items-center">
+                    <x-icon.sololearn class="w-10 h-10 text-indigo-600 " />
+                    <p>SoloLearn Certificates</p>
+                </div>
                 {{-- HTML --}}
-            <a href="https://www.sololearn.com/certificates/CC-HOFBUUPZ"
-               class="text-indigo-600 hover:text-indigo-500 flex gap-3 items-center" target="_blank">
+                <a href="https://www.sololearn.com/certificates/CC-HOFBUUPZ"
+                   class="text-indigo-600 hover:text-indigo-500 flex gap-3 items-center" target="_blank">
 
-                <x-icon.html5 class="w-10 h-5 " />
-                <p>HTML5</p>
-            </a>
-            {{-- JS intro --}}
-            <a href="#"
-               class="text-indigo-600 hover:text-indigo-500 flex gap-3 items-center"
-               onclick="window.linkNotReady()">
-                <x-icon.javascript class="w-10 h-5 text-indigo-600 " />
-                <p>javascript introduction</p>
-            </a>
-            {{-- JS intermediate --}}
-            <a href="#"
-               class="text-indigo-600 hover:text-indigo-500 flex gap-3 items-center"
-               onclick="window.linkNotReady()">
-                <x-icon.javascript class="w-10 h-5 text-indigo-600 " />
-                <p>javascript intermediate</p>
-            </a>
-            {{-- CSS --}}
-            <a href="#"
-               class="text-indigo-600 hover:text-indigo-500 flex gap-3 items-center"
-               onclick="window.linkNotReady()">
-                <x-icon.css class="w-10 h-5 text-indigo-600 " />
-                <p>Cascading Style Sheets</p>
-            </a>
-            {{-- PHP --}}
-            <a href="#"
-               class="text-indigo-600 hover:text-indigo-500 flex gap-3 items-center"
-               onclick="window.linkNotReady()">
-                <x-icon.php class="w-10 h-5 text-indigo-600 " />
-                <p>PHP: Hypertext Preprocessor</p>
-            </a>
-        </div>
-            {{-- UDEMY Certificates --}}
-        <div>
-            <div class="text-indigo-600  flex gap-3 items-center">
-                <x-icon.udemy class="w-10 h-10 text-indigo-600  " />
-                <p>Udemy Certificates</p>
+                    <x-icon.html5 class="w-10 h-5 " />
+                    <p>HTML5</p>
+                </a>
+                {{-- JS intro --}}
+                <a href="#"
+                   class="text-indigo-600 hover:text-indigo-500 flex gap-3 items-center"
+                   onclick="window.linkNotReady()">
+                    <x-icon.javascript class="w-10 h-5 text-indigo-600 " />
+                    <p>javascript introduction</p>
+                </a>
+                {{-- JS intermediate --}}
+                <a href="#"
+                   class="text-indigo-600 hover:text-indigo-500 flex gap-3 items-center"
+                   onclick="window.linkNotReady()">
+                    <x-icon.javascript class="w-10 h-5 text-indigo-600 " />
+                    <p>javascript intermediate</p>
+                </a>
+                {{-- CSS --}}
+                <a href="#"
+                   class="text-indigo-600 hover:text-indigo-500 flex gap-3 items-center"
+                   onclick="window.linkNotReady()">
+                    <x-icon.css class="w-10 h-5 text-indigo-600 " />
+                    <p>Cascading Style Sheets</p>
+                </a>
+                {{-- PHP --}}
+                <a href="#"
+                   class="text-indigo-600 hover:text-indigo-500 flex gap-3 items-center"
+                   onclick="window.linkNotReady()">
+                    <x-icon.php class="w-10 h-5 text-indigo-600 " />
+                    <p>PHP: Hypertext Preprocessor</p>
+                </a>
             </div>
-            {{-- Laravel --}}
-            <a href="#"
-               class="text-indigo-600 hover:text-indigo-500 flex gap-3 items-center"
-               onclick="window.linkNotReady()">
+            {{-- UDEMY Certificates --}}
+            <div>
+                <div class="text-indigo-600  flex gap-3 items-center">
+                    <x-icon.udemy class="w-10 h-10 text-indigo-600  " />
+                    <p>Udemy Certificates</p>
+                </div>
+                {{-- Laravel --}}
+                <a href="#"
+                   class="text-indigo-600 hover:text-indigo-500 flex gap-3 items-center"
+                   onclick="window.linkNotReady()">
 
 
-                <x-icon.laravel class="w-10 h-5 " />
-                <p>Laravel still in progress</p>
+                    <x-icon.laravel class="w-10 h-5 " />
+                    <p>Laravel still in progress</p>
 
 
-            </a>
+                </a>
 
+
+            </div>
 
         </div>
-
     </div>
+
 
     <!-- This div will be fixed at the bottom -->
     <div class="bottom-0 fixed w-full  max-h-28 flex justify-evenly bg-gray-600 ">
