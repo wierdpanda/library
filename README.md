@@ -2,14 +2,9 @@
  
 Dependencies:
 
-1. laravel 11
-2. breeze+tailwindcss 3^
-3. sass 1^
-4. php 8^
-5. node 18^
-6. laravel vite-plugin v1
-7. vite 5^
-7. flowbite 2^
+1. composer
+2. php 8^
+3. node 18^
 
 copy .env.example over to.env
 setup database details in .env

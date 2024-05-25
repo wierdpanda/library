@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('home');
-})->middleware(['auth', 'verified'])->name('home');
+})->name('home');
 Route::get('/new', function () {
     return view('new');
 });

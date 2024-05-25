@@ -10,45 +10,62 @@
 
 </head>
 
-<body class= "bg-gray-100 dark:bg-gray-900 ">
-    
+<body class= "bg-gray-100 dark:bg-gray-900  xs:overflow-y-scroll  md:overflow-y-hidden pb-[200px]">
 
-    {{-- nav bar + icon/home button --}}
-    
-    <nav class="bg-gray-800 shadow">
-        <div class="hidden sm:flex sm:items-end sm:ms-6">
-            <x-dropdown align="right" width="48">
-                <x-slot name="trigger">
-                    <button class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md  dark:text-gray-400 bg-white dark:bg-gray-800 hover:text-gray-700 dark:hover:text-indigo-400  transition ease-in-out duration-150">
-                        <div>{{ Auth::user()->name }}</div>
 
-                        <div class="ms-1">
-                            <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-                            </svg>
-                        </div>
-                    </button>
-                </x-slot>
+    {{-- profile and logout dropdown --}}
 
-                <x-slot name="content">
-                    <x-dropdown-link :href="route('profile.edit')">
-                        {{ __('Profile') }}
-                    </x-dropdown-link>
+    <nav class="bg-gray-800 shadow" aria-label="profile and logins">
+        <div class="w-full
+        py-3 sm:px-12
+        
+        max-w-screen-xl
+        relative mr-auto">
+            @auth
+                <x-dropdown align="right" width="48">
+                    <x-slot name="trigger">
+                        <button
+                                class="inline-flex items-center px-3 py-2
+                        border border-transparent
+                        text-sm leading-4 font-medium
+                        rounded-md
+                        dark:text-gray-400 bg-white dark:bg-gray-800 hover:text-gray-700 dark:hover:text-indigo-400
+                        transition ease-in-out duration-150">
+                            {{-- ?? '' means if user name does not exist take to home page --}}
+                            <div>{{ Auth::user()->name ?? '' }}</div>
 
-                    <!-- Authentication -->
-                    <form method="POST" action="{{ route('logout') }}">
-                        @csrf
+                            <div class="ms-1">
+                                <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                          d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                          clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                        </button>
+                    </x-slot>
 
-                        <x-dropdown-link :href="route('logout')"
-                                onclick="event.preventDefault();
-                                            this.closest('form').submit();">
-                            {{ __('Log Out') }}
+                    <x-slot name="content">
+                        <x-dropdown-link :href="route('profile.edit')">
+                            {{ __('Profile') }}
                         </x-dropdown-link>
-                    </form>
-                </x-slot>
-            </x-dropdown>
+
+                        <!-- Authentication -->
+                        <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+
+                            <x-dropdown-link :href="route('logout')"
+                                             onclick="event.preventDefault();
+                                            this.closest('form').submit();">
+                                {{ __('Log Out') }}
+                            </x-dropdown-link>
+                        </form>
+                    </x-slot>
+                </x-dropdown>
+            @endauth
         </div>
-        <div class="w-full flex flex-col
+        {{-- nav bar + icon/home button  --}}
+        <div
+             class="w-full flex flex-col
          items-center justify-center
          py-3 sm:flex-row sm:justify-between sm:px-12
          lg:justify-center max-w-screen-xl
@@ -59,118 +76,158 @@
             </a>
             <div class=" max-w-fit lg:absolute lg:right-3 ">
                 @if (Route::has('login'))
-                                <nav >
-                                    @auth
-                                        <a
-                                            href="{{ url('/dashboard') }}"
-                                            class="rounded-md px-3 py-2   dark:text-gray-200 dark:hover:text-indigo-400  border border-solid border-indigo-600  shadow "
-                                        >
-                                            Dashboard
-                                        </a>
-                                    @else
-                                     
-                                        <a
-                                            href="{{ route('login') }}"
-                                            class="rounded-l-md px-3 py-2   dark:text-gray-200 dark:hover:text-indigo-400 border border-solid border-indigo-600  shadow "
-                                        >
-                                            Log in
-                                        </a>
-                                           
-                                        @if (Route::has('register'))
-                                            <a
-                                                href="{{ route('register') }}"
-                                                class="rounded-r-md px-3 py-2   dark:text-gray-200 dark:hover:text-indigo-400 border border-solid border-indigo-600  shadow "
-                                            >
-                                                Register
-                                            </a>
-                                       
-                                        @endif
-                                    @endauth
-                                </nav>
+                    <nav>
+                        @auth
+                            <a
+                               href="{{ url('/dashboard') }}"
+                               class="rounded-md px-3 py-2   dark:text-gray-200 dark:hover:text-indigo-400  border border-solid border-indigo-600  shadow ">
+                                Dashboard
+                            </a>
+                        @else
+                            <a
+                               href="{{ route('login') }}"
+                               class="rounded-l-md px-3 py-2   dark:text-gray-200 dark:hover:text-indigo-400 border border-solid border-indigo-600  shadow ">
+                                Log in
+                            </a>
+
+                            @if (Route::has('register'))
+                                <a
+                                   href="{{ route('register') }}"
+                                   class="rounded-r-md px-3 py-2   dark:text-gray-200 dark:hover:text-indigo-400 border border-solid border-indigo-600  shadow ">
+                                    Register
+                                </a>
                             @endif
-                        </div>
+                        @endauth
+                    </nav>
+                @endif
+            </div>
         </div>
     </nav>
 
-                        
-        
 
-    {{-- images + slot +  --}}
-    <div class="flex bg-gray-600 justify-between max-w-screen-xl
-    relative mx-auto">
-        {{-- images left  +hides smaller screens--}}
-        <div class="w-1/5 ">
-            
-            {{-- image left top --}}
-            <img class="w-full max-h-32 max-w-32  mx-auto py-3"
-                 src="{{ asset('img/soloLearn.png') }}"
 
-                 alt="No image found">
 
-            {{-- Soloearn links --}}
-            <a href="https://www.sololearn.com/certificates/CC-HOFBUUPZ" >
-            <img src="{{ asset('img/html.jpeg') }}" alt="No image found" class="mx-auto flex flex-gap justify-center py-4 max-h-20 " >
-            
-            </a>
-            
-            
-                 
-        </div>
+    {{-- center div  --}}
+    <div class=" flex justify-center items-center max-w-screen-xl
+    relative mx-auto mt-10   ">
+
 
         {{-- Content --}}
-        <div class=" bg-indigo-600 w-3/5 text-gray-200 px-3 py-1.5 ">
-            
+        <div class=" bg-gray-600 w-3/5 text-gray-200 px-3 py-1.5  ">
+
             <h1>Nathanial's Library</h1>
-        <p>
-            This site was created and designed around learning the Laravel framework focusing on php, tailwindcss and javascript and was intended to
-            be a display site to show what I can currently do.
-        </p>
+            <br>
+            <p>
+                This site was created and designed around learning the Laravel framework focusing on php, tailwindcss
+                and javascript and was intended to
+                be a display site to show what I can currently do.
+            </p>
+            <p>feel free to browse my work via register/login/dashboard</p>
+            <p>The login sytem and profile edit/delete is the laravel/breeze built in feature</p>
+            <br>
+            <p>Currently I am also learning via sololearn and udemy and below are my certificates I have achieved so
+                far.
+            </p>
 
-        <p>Currently I am also learning via sololearn and on the left are my certificates I have achieved so far. </p>
+        </div>
 
-        <p>feel free to browse my work via register/login/dashboard</p>
+
+    </div>
+    {{-- certificates --}}
+    {{-- make  popup  in middle of sceen (modal) for when course links are not ready yet --}}
+    <div class="w-full flex justify-evenly  mt-10 background-div mx-auto max-w-screen-lg">
+        <div>
+            {{-- sololearn Certificates --}}
+            <div class="text-indigo-600  flex gap-3 items-center">
+                <x-icon.sololearn class="w-10 h-10 text-indigo-600 " />
+                <p>SoloLearn Certificates</p>
+            </div>
+                {{-- HTML --}}
+            <a href="https://www.sololearn.com/certificates/CC-HOFBUUPZ"
+               class="text-indigo-600 hover:text-indigo-500 flex gap-3 items-center" target="_blank">
+
+                <x-icon.html5 class="w-10 h-5 " />
+                <p>HTML5</p>
+            </a>
+            {{-- JS intro --}}
+            <a href="#"
+               class="text-indigo-600 hover:text-indigo-500 flex gap-3 items-center"
+               onclick="window.linkNotReady()">
+                <x-icon.javascript class="w-10 h-5 text-indigo-600 " />
+                <p>javascript introduction</p>
+            </a>
+            {{-- JS intermediate --}}
+            <a href="#"
+               class="text-indigo-600 hover:text-indigo-500 flex gap-3 items-center"
+               onclick="window.linkNotReady()">
+                <x-icon.javascript class="w-10 h-5 text-indigo-600 " />
+                <p>javascript intermediate</p>
+            </a>
+            {{-- CSS --}}
+            <a href="#"
+               class="text-indigo-600 hover:text-indigo-500 flex gap-3 items-center"
+               onclick="window.linkNotReady()">
+                <x-icon.css class="w-10 h-5 text-indigo-600 " />
+                <p>Cascading Style Sheets</p>
+            </a>
+            {{-- PHP --}}
+            <a href="#"
+               class="text-indigo-600 hover:text-indigo-500 flex gap-3 items-center"
+               onclick="window.linkNotReady()">
+                <x-icon.php class="w-10 h-5 text-indigo-600 " />
+                <p>PHP: Hypertext Preprocessor</p>
+            </a>
+        </div>
+            {{-- UDEMY Certificates --}}
+        <div>
+            <div class="text-indigo-600  flex gap-3 items-center">
+                <x-icon.udemy class="w-10 h-10 text-indigo-600  " />
+                <p>Udemy Certificates</p>
+            </div>
+            {{-- Laravel --}}
+            <a href="#"
+               class="text-indigo-600 hover:text-indigo-500 flex gap-3 items-center"
+               onclick="window.linkNotReady()">
+
+
+                <x-icon.laravel class="w-10 h-5 " />
+                <p>Laravel still in progress</p>
+
+
+            </a>
 
 
         </div>
 
-        {{-- images right --}}
-        <div class=" w-1/5 bg-gray-600 " >
-            {{-- image right top --}}
-            <img class="w-full max-h-32 max-w-32  mx-auto py-3"
-                 src="{{ asset('img/udemy.png') }}"
-
-                 alt="Place holder">
-            {{-- image right bottem --}}
-            <a href="#"  class="mx-auto flex flex-gap justify-center py-4 text-indigo-400">
-                Coming soon
-                </a>
-        </div>
     </div>
 
-    
-    
-
     <!-- This div will be fixed at the bottom -->
-    <div class="bottom-0 fixed w-full  max-h-28 ">
-        
-        <div class="w-full bg-gray-500 min-h-[150px] h-full">
+    <div class="bottom-0 fixed w-full  max-h-28 flex justify-evenly bg-gray-600 ">
 
-            <h3 class="text-white pt-3 px-3">
+        <div class="w-full max-w-[250px] bg-gray-600 min-h-[150px] h-full ">
+
+            <h3 class="text-gray-200  pt-3 px-3">
                 Contact:
             </h3>
 
-            <p class="text-white px-3 py-1.5">
+            <p class="text-gray-200 px-3 py-1.5">
                 Cellphone: 0662116260
             </p>
-            <p class="text-white  px-3 py-1.5">
+            <p class="text-gray-200  px-3 py-1.5">
                 Email: natwork102@gmail.com
             </p>
+
+        </div>
+
+
+
+
+
+
+
     </div>
-    
 
-    
 
-  
 </body>
 
 

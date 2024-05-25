@@ -3,3 +3,11 @@
 @import "tailwindcss/utilities";
 
 @import "tables";
+
+.background-div {
+    background-image: ('public/img/learnBanner.jpg');
+}
+
+.bgtest {
+    background-color: aqua;
+}
