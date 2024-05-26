@@ -1,170 +1,69 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>new</title>
-    @vite(['resources/scss/app.scss', 'resources/js/app.js'])
+    <title>{{ config('app.name', 'Laravel') }}</title>
 
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.bunny.net">
+    <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+
+    <!-- Scripts -->
+    @vite(['resources/scss/app.scss', 'resources/js/app.js'])
 </head>
 
-<body class= "bg-gray-100 dark:bg-gray-900 ">
-    
+<body>
+    {{-- top nav bar --}}
+    <nav class="w-full fixed top-0 h-28 bg-gray-800 p-4  px-6 flex items-center justify-center shadow-sm">
+        {{-- div to cap width of child components --}}
+        <div class="w-full max-w-screen-xl h-full bg-transparent flex items-center justify-between">
+            {{-- logo on left --}}
+            <a href="/" class="flex items-center h-full gap-3">
+                <x-book-logo class="h-full aspect-square fill-current text-gray-400 " />
+                <span class="text-3xl text-white"> {{ __('Library') }} </span>
 
-    {{-- nav bar + icon/home button --}}
-    
-    <nav class="bg-gray-800 shadow">
-        <div class="hidden sm:flex sm:items-end sm:ms-6">
-            <x-dropdown align="right" width="48">
-                <x-slot name="trigger">
-                    <button class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md  dark:text-gray-400 bg-white dark:bg-gray-800 hover:text-gray-700 dark:hover:text-indigo-400  transition ease-in-out duration-150">
-                        <div>{{ Auth::user()->name }}</div>
+            </a>
 
-                        <div class="ms-1">
-                            <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-                            </svg>
-                        </div>
-                    </button>
-                </x-slot>
-
-                <x-slot name="content">
-                    <x-dropdown-link :href="route('profile.edit')">
+            {{-- profile drop down on right --}}
+            <div class="h-full py-2 relative">
+                <x-icon.defaultProfile
+                    id="profile-dropdown-toggle"
+                    class="h-full aspect-square  bg-gray-200 rounded-full text-gray-300 shadow-sm cursor-pointer "
+                    dropdown-opened="false"
+                    />
+                {{-- dropdown --}}
+                <div
+                id="profile-dropdown"
+                class="py-3 bg-gray-700 border border-indigo-600 shadow absolute rounded top-full right-0 hidden"
+                >
+                    {{-- name and email --}}
+                    <div class="w-full border-b border-indigo-600 text-gray-300 px-6 pb-1">
+                        <span class="text-gray-200"> {{ __('nat') }} </span>
+                        <span> {{ __('nat102@gmail.com') }} </span>
+                    </div>
+                    {{-- logout --}}
+                    <a href="# " class="w-full py-3 block text-gray-300 px-6  hover:bg-gray-600">
+                        {{ __('Logout') }}
+                    </a>
+                    {{-- profile --}}
+                    <a href="# " class="w-full py-3 block text-gray-300 px-6  hover:bg-gray-600">
                         {{ __('Profile') }}
-                    </x-dropdown-link>
+                    </a>
 
-                    <!-- Authentication -->
-                    <form method="POST" action="{{ route('logout') }}">
-                        @csrf
 
-                        <x-dropdown-link :href="route('logout')"
-                                onclick="event.preventDefault();
-                                            this.closest('form').submit();">
-                            {{ __('Log Out') }}
-                        </x-dropdown-link>
-                    </form>
-                </x-slot>
-            </x-dropdown>
+
+
+                </div>
+
+            </div>
         </div>
-        <div class="w-full flex flex-col
-         items-center justify-center
-         py-3 sm:flex-row sm:justify-between sm:px-12
-         lg:justify-center max-w-screen-xl
-         relative mx-auto
-         ">
-            <a href="new">
-                <x-book-logo class="block h-28 w-auto fill-current text-gray-800 dark:text-gray-200" />
-            </a>
-            <div class=" max-w-fit lg:absolute lg:right-3 ">
-                @if (Route::has('login'))
-                                <nav >
-                                    @auth
-                                        <a
-                                            href="{{ url('/dashboard') }}"
-                                            class="rounded-md px-3 py-2   dark:text-gray-200 dark:hover:text-indigo-400  border border-solid border-indigo-600  shadow "
-                                        >
-                                            Dashboard
-                                        </a>
-                                    @else
-                                     
-                                        <a
-                                            href="{{ route('login') }}"
-                                            class="rounded-l-md px-3 py-2   dark:text-gray-200 dark:hover:text-indigo-400 border border-solid border-indigo-600  shadow "
-                                        >
-                                            Log in
-                                        </a>
-                                           
-                                        @if (Route::has('register'))
-                                            <a
-                                                href="{{ route('register') }}"
-                                                class="rounded-r-md px-3 py-2   dark:text-gray-200 dark:hover:text-indigo-400 border border-solid border-indigo-600  shadow "
-                                            >
-                                                Register
-                                            </a>
-                                       
-                                        @endif
-                                    @endauth
-                                </nav>
-                            @endif
-                        </div>
-        </div>
+
+
     </nav>
-
-                        
-        
-
-    {{-- images + slot +  --}}
-    <div class="flex bg-gray-600 justify-evenly ">
-        {{-- images left  +hides smaller screens--}}
-        <div class="w-full hidden sm:block">
-            
-            {{-- image left top --}}
-            <img class="w-full max-h-32 max-w-32  mx-auto"
-                 src="{{ asset('img/soloLearn.png') }}"
-
-                 alt="No image found">
-
-            {{-- Soloearn links --}}
-            <a href="https://www.sololearn.com/certificates/CC-HOFBUUPZ" >
-            <img src="{{ asset('img/html.jpeg') }}" alt="No image found" class="mx-auto flex flex-gap justify-center py-4 max-h-20" >
-            
-            </a>
-            
-            
-                 
-        </div>
-
-        {{-- Content --}}
-        <div class=" bg-indigo-600 w-full text-gray-200 ">
-            
-            <h1>Nathanial's Library</h1>
-        <p>
-            This site was created and designed around learning the Laravel framework focusing on php, tailwindcss and javascript and was intended to
-            be a display site to show what I can currently do.
-        </p>
-
-        <p>Currently I am also learning via sololearn and on the left are my certificates I have achieved so far. </p>
-
-
-        </div>
-
-        {{-- images right --}}
-        <div class=" w-full bg-gray-600 hidden sm:block" >
-            {{-- image right top --}}
-            <img class="w-full max-h-32 max-w-32  mx-auto"
-                 src="{{ asset('img/udemy.png') }}"
-
-                 alt="Place holder">
-            {{-- image right bottem --}}
-            <a href="#"  class="mx-auto flex flex-gap justify-center py-4 text-indigo-400">
-                Coming soon
-                </a>
-        </div>
-    </div>
-
-    <div class="bottom-0 fixed w-full  max-h-28 ">
-        <!-- This div will be fixed at the bottom -->
-        <div class="w-full bg-gray-500 min-h-[150px] h-full">
-
-            <h3 class="text-white pt-3 px-3">
-                Contact:
-            </h3>
-
-            <p class="text-white px-3 py-1.5">
-                Cellphone: 0662116260
-            </p>
-            <p class="text-white  px-3 py-1.5">
-                Email: natwork102@gmail.com
-            </p>
-    </div>
-
-    
-
-  
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
 </body>
-
-
 
 </html>
