@@ -10,7 +10,7 @@
 
 </head>
 
-<body class= "bg-gray-100 dark:bg-gray-900  xs:overflow-y-scroll  md:overflow-y-hidden pb-[200px]">
+<body class= "bg-gray-100 dark:bg-gray-900  xs:overflow-y-scroll  xs:overflow-y-hidden pb-[200px]">
 
 
     {{-- profile and logout dropdown --}}
