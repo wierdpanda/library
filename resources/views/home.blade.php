@@ -151,6 +151,13 @@
                     <x-icon.html5 class="w-10 h-5 " />
                     <p>HTML5</p>
                 </a>
+                {{-- PHP --}}
+                <a href="https://www.sololearn.com/certificates/CC-WNTN6GFQ"
+                   class="text-indigo-600 hover:text-indigo-500 flex gap-3 items-center" target="_blank"
+                   >
+                    <x-icon.php class="w-10 h-5 text-indigo-600 " />
+                    <p>PHP: Hypertext Preprocessor</p>
+                </a>
                 {{-- JS intro --}}
                 <a href="#"
                    class="text-indigo-600 hover:text-indigo-500 flex gap-3 items-center"
@@ -172,13 +179,14 @@
                     <x-icon.css class="w-10 h-5 text-indigo-600 " />
                     <p>Cascading Style Sheets</p>
                 </a>
-                {{-- PHP --}}
+                {{-- Introduction to web development --}}
                 <a href="#"
                    class="text-indigo-600 hover:text-indigo-500 flex gap-3 items-center"
                    onclick="window.linkNotReady()">
-                    <x-icon.php class="w-10 h-5 text-indigo-600 " />
-                    <p>PHP: Hypertext Preprocessor</p>
+                    <x-icon.css class="w-10 h-5 text-indigo-600 " />
+                    <p>Introduction to web development</p>
                 </a>
+                
             </div>
             {{-- UDEMY Certificates --}}
             <div>
