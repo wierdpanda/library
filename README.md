@@ -25,6 +25,6 @@ Generate APP Key
 3. refresh page
 
 
-Nat only!!!
+Nathanial only!!!
 1. add the laragon server port info in vite.config
 

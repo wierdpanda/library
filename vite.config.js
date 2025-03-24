@@ -13,5 +13,5 @@ export default defineConfig({
         }),
     ],
        // vite server address has nothign to do with laragon
-    server: { https: false, host: 'library.test', port:'5173' },
+    // server: { https: false, host: 'library.test', port:'5173' },
 });
