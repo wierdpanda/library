@@ -24,3 +24,7 @@ Generate APP Key
 2. Click Generate APP Key in the top right hand side of page.
 3. refresh page
 
+
+Nat only!!!
+1. add the laragon server port info in vite.config
+

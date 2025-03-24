@@ -119,10 +119,13 @@
             <br>
             <p>
                 This site was created and designed around learning the Laravel framework focusing on php, tailwindcss
-                and javascript and was intended to
-                be a display site to show what I can currently do.
+                and javascript and was intended to be a display and practice site.
+                This was an early project so please do not sue me for the damage on your eyes that is my color scheme.
+
+
             </p>
             <p>feel free to browse my work via register/login/dashboard</p>
+            
             <p>The login sytem and profile edit/delete is the laravel/breeze built in feature</p>
             <br>
             <p>Currently I am also learning via sololearn and udemy and below are my certificates I have achieved so
